@@ -4,32 +4,35 @@ using System;
 using System.Collections.Generic;
 using Utilities;
 
-namespace Eddi
+namespace EddiCore
 {
-    public class MarketInfoReader
+    public class ShipyardInfoReader
     {
         public DateTime timestamp { get; set; }
         public long MarketID { get; set; }
         public string StationName { get; set; }
         public string StarSystem { get; set; }
-        public List<MarketInfo> Items { get; set; }
+        public bool Horizons { get; set; }
+        public bool AllowCobraMkIV { get; set; }
+        public List<ShipyardInfo> PriceList { get; set; }
 
-        public MarketInfoReader()
+        public ShipyardInfoReader()
         {
-            Items = new List<MarketInfo>();
+            PriceList = new List<ShipyardInfo>();
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2202:Do not dispose objects multiple times")] // this usage is perfectly correct    
-        public static MarketInfoReader FromFile(string filename = null)
+        public static ShipyardInfoReader FromFile(string filename = null)
         {
-            MarketInfoReader info = new MarketInfoReader();
+            ShipyardInfoReader info = new ShipyardInfoReader();
 
-            string data = Files.FromSavedGames("Market.json");
+            string data = Files.FromSavedGames("Shipyard.json");
             if (data != null)
             {
-                info = JsonConvert.DeserializeObject<MarketInfoReader>(data);
+                info = JsonConvert.DeserializeObject<ShipyardInfoReader>(data);
             }
             return info;
         }
     }
 }
+

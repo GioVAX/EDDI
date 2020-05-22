@@ -20,7 +20,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Utilities;
 
-namespace Eddi
+namespace EddiCore
 {
     /// <summary>
     /// Eddi is the controller for all EDDI operations.  Its job is to retain the state of the objects such as the commander, the current system, etc.
