@@ -3,6 +3,7 @@ using EddiBgsService;
 using EddiDataDefinitions;
 using EddiDataProviderService;
 using EddiEvents;
+using EddiInterfaces;
 using EddiMissionMonitor;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;

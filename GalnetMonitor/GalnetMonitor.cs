@@ -1,5 +1,6 @@
-﻿using Eddi;
+﻿using EddiCore;
 using EddiEvents;
+using EddiInterfaces;
 using Newtonsoft.Json.Linq;
 using SimpleFeedReader;
 using System;

@@ -1,6 +1,8 @@
 ﻿using EddiCompanionAppService;
+using EddiCore;
 using EddiDataDefinitions;
 using EddiDataProviderService;
+using EddiInterfaces;
 using EddiSpeechService;
 using System;
 using System.Collections.Generic;

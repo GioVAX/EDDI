@@ -1,7 +1,8 @@
-﻿using Eddi;
+﻿using EddiCore;
 using EddiDataDefinitions;
 using EddiDataProviderService;
 using EddiEvents;
+using EddiInterfaces;
 using NetMQ;
 using NetMQ.Sockets;
 using Newtonsoft.Json.Linq;
