@@ -133,6 +133,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppUpgrade.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="StarSystemComboBox.cs" />
     <Page Include="App.xaml">

@@ -25,6 +25,8 @@ namespace Eddi
         {
             if (!FromVA && AlreadyRunning()) { return; }
 
+            upg();
+
             App app = new App();
             app.Exit += OnExit;
 
@@ -53,6 +55,19 @@ namespace Eddi
             if (!FromVA)
             {
                 eddiMutex.ReleaseMutex();
+            }
+        }
+
+        private static void upg()
+		{
+            var appUpgrade = new AppUpgrade();
+
+            // Start by fetching information from the update server, and handling appropriately
+            appUpgrade.CheckUpgrade();
+            if (appUpgrade.UpgradeRequired)
+            {
+                // We are too old to continue; initialize in a "safe mode". 
+                EddiCore.EDDI.InitInstance(true);
             }
         }
 

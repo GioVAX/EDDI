@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Windows.Controls;
 
-namespace EddiCore
+namespace EddiInterfaces
 {
     /// <summary>
     /// The methods required for an EDDI monitor.

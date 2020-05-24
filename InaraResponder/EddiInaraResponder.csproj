@@ -76,6 +76,10 @@
       <Project>{19ab6841-aa93-4d23-be6d-4cb6883cdf62}</Project>
       <Name>EddiInaraService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EddiInterfaces\EddiInterfaces.csproj">
+      <Project>{00ce67cb-90b4-43d7-bf62-6bc52c7c5b36}</Project>
+      <Name>EddiInterfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EDDI\Eddi.csproj">
       <Project>{ec7ba042-a370-447f-8c3e-241358cebcbb}</Project>
       <Name>Eddi</Name>
