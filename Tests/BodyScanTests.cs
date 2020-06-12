@@ -1,6 +1,9 @@
-﻿using EddiEvents;
+﻿using System;
+using EddiEvents;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using EddiDataDefinitions;
+using FluentAssertions;
 
 namespace UnitTests
 {
@@ -17,36 +20,43 @@ namespace UnitTests
         public void TestBodyScanDagutiiABC1b()
         {
             string data = @"{ ""timestamp"":""2016-10-05T10:28:04Z"", ""event"":""Scan"", ""BodyName"":""Dagutii ABC 1 b"", ""DistanceFromArrivalLS"":644.074463, ""TidalLock"":true, ""TerraformState"":"""", ""PlanetClass"":""Icy body"", ""Atmosphere"":"""", ""Volcanism"":""carbon dioxide geysers volcanism"", ""MassEM"":0.001305, ""Radius"":964000.375000, ""SurfaceGravity"":0.559799, ""SurfaceTemperature"":89.839241, ""SurfacePressure"":0.000000, ""Landable"":true, ""Materials"":{ ""sulphur"":26.8, ""carbon"":22.5, ""phosphorus"":14.4, ""iron"":12.1, ""nickel"":9.2, ""chromium"":5.4, ""selenium"":4.2, ""vanadium"":3.0, ""niobium"":0.8, ""molybdenum"":0.8, ""ruthenium"":0.7 }, ""SemiMajorAxis"":739982912.000000, ""Eccentricity"":0.000102, ""OrbitalInclination"":-0.614765, ""Periapsis"":233.420425, ""OrbitalPeriod"":242733.156250, ""RotationPeriod"":242735.265625 }";
+            var expected = new List<Event>
+            {
+                new BodyScannedEvent( 
+                    DateTime.Parse("2016-10-05T10:28:04Z").ToUniversalTime(), 
+                    "",
+	                new Body
+					{
+						volcanism = Volcanism.FromName("carbon dioxide geysers volcanism"),
+	                }   
+                ) { raw = data }
+            };
+
 
             List<Event> events = EddiJournalMonitor.JournalMonitor.ParseJournalEntry(data);
 
-            Assert.IsTrue(events.Count == 1);
-
-            Assert.IsTrue(events[0] is BodyScannedEvent);
-            BodyScannedEvent bsEvent = (BodyScannedEvent)events[0];
-
-            Assert.IsNotNull(bsEvent.volcanism);
-            Assert.AreEqual("Geysers", bsEvent.volcanism.invariantType);
-            Assert.AreEqual("Carbon dioxide", bsEvent.volcanism.invariantComposition);
-            Assert.IsNull(bsEvent.volcanism.invariantAmount);
+            events.Should().BeEquivalentTo(expected);
         }
 
         [TestMethod]
         public void TestBodyScanPruEurkTXBc135A1()
         {
             string data = @"{ ""TerraformState"": """", ""MassEM"": 1.852702, ""PlanetClass"": ""High metal content body"", ""SurfacePressure"": 28794888.0, ""RotationPeriod"": 14164107.0, ""event"": ""Scan"", ""OrbitalPeriod"": 14146797.0, ""Eccentricity"": 4e-06, ""AtmosphereType"": ""CarbonDioxide"", ""SurfaceTemperature"": 1045.624512, ""TidalLock"": true, ""Periapsis"": 347.254364, ""BodyName"": ""Pru Eurk TX - B c13 - 5 A 1"", ""SemiMajorAxis"": 84379811840.0, ""timestamp"": ""2017 - 02 - 22T10: 53:44Z"", ""Volcanism"": ""minor silicate vapour geysers volcanism"", ""Atmosphere"": ""hot thick carbon dioxide atmosphere"", ""OrbitalInclination"": 0.143376, ""Landable"": false, ""Radius"": 7275987.0, ""DistanceFromArrivalLS"": 281.461151, ""SurfaceGravity"": 13.948622 }";
+            var expected = new List<Event>
+            {
+	            new BodyScannedEvent(
+		            DateTime.Parse("2017 - 02 - 22T10: 53:44Z").ToUniversalTime(),
+		            "",
+		            new Body
+		            {
+			            volcanism = Volcanism.FromName("minor silicate vapour geysers volcanism"),
+		            }
+                )  { raw = data }
+            };
 
             List<Event> events = EddiJournalMonitor.JournalMonitor.ParseJournalEntry(data);
 
-            Assert.IsTrue(events.Count == 1);
-
-            Assert.IsTrue(events[0] is BodyScannedEvent);
-            BodyScannedEvent bsEvent = (BodyScannedEvent)events[0];
-
-            Assert.IsNotNull(bsEvent.volcanism);
-            Assert.AreEqual("Geysers", bsEvent.volcanism.invariantType);
-            Assert.AreEqual("Silicate vapour", bsEvent.volcanism.invariantComposition);
-            Assert.AreEqual("Minor", bsEvent.volcanism.invariantAmount);
+            events.Should().BeEquivalentTo(expected);
         }
 
         [TestMethod]
@@ -56,12 +66,19 @@ namespace UnitTests
 
             List<Event> events = EddiJournalMonitor.JournalMonitor.ParseJournalEntry(data);
 
-            Assert.IsTrue(events.Count == 1);
+            var expected = new List<Event>
+            {
+	            new BodyScannedEvent(
+		            DateTime.Parse("2017-02-22T10:53:46Z").ToUniversalTime(),
+		            "",
+		            new Body
+		            {
+			            volcanism = Volcanism.FromName(""),
+		            }
+	            )  { raw = data }
+            };
 
-            Assert.IsTrue(events[0] is BodyScannedEvent);
-            BodyScannedEvent bsEvent = (BodyScannedEvent)events[0];
-
-            Assert.IsNull(bsEvent.volcanism);
+            events.Should().BeEquivalentTo(expected);
         }
 
         [TestMethod]
@@ -71,15 +88,19 @@ namespace UnitTests
 
             List<Event> events = EddiJournalMonitor.JournalMonitor.ParseJournalEntry(data);
 
-            Assert.IsTrue(events.Count == 1);
+            var expected = new List<Event>
+            {
+	            new BodyScannedEvent(
+		            DateTime.Parse("2017-02-22T10:53:18Z").ToUniversalTime(),
+		            "",
+		            new Body
+		            {
+			            volcanism = Volcanism.FromName("metallic magma volcanism"),
+		            }
+	            )  { raw = data }
+            };
 
-            Assert.IsTrue(events[0] is BodyScannedEvent);
-            BodyScannedEvent bsEvent = (BodyScannedEvent)events[0];
-
-            Assert.IsNotNull(bsEvent.volcanism);
-            Assert.AreEqual("Magma", bsEvent.volcanism.invariantType);
-            Assert.AreEqual("Iron", bsEvent.volcanism.invariantComposition);
-            Assert.IsNull(bsEvent.volcanism.invariantAmount);
+            events.Should().BeEquivalentTo(expected);
         }
 
         [TestMethod]
@@ -89,15 +110,19 @@ namespace UnitTests
 
             List<Event> events = EddiJournalMonitor.JournalMonitor.ParseJournalEntry(data);
 
-            Assert.IsTrue(events.Count == 1);
+            var expected = new List<Event>
+            {
+	            new BodyScannedEvent(
+		            DateTime.Parse("2017-02-22T10:53:18Z").ToUniversalTime(),
+		            "",
+		            new Body
+		            {
+			            volcanism = Volcanism.FromName("metallic magma volcanism"),
+		            }
+	            )  { raw = data }
+            };
 
-            Assert.IsTrue(events[0] is BodyScannedEvent);
-            BodyScannedEvent bsEvent = (BodyScannedEvent)events[0];
-
-            Assert.IsNotNull(bsEvent.volcanism);
-            Assert.AreEqual("Magma", bsEvent.volcanism.invariantType);
-            Assert.AreEqual("Silicate", bsEvent.volcanism.invariantComposition);
-            Assert.AreEqual("Major", bsEvent.volcanism.invariantAmount);
+            events.Should().BeEquivalentTo(expected);
         }
     }
 }
