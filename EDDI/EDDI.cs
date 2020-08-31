@@ -2600,6 +2600,28 @@ namespace EddiCore
             return monitors;
         }
 
+        private Assembly safeLoadAssembly( FileInfo fi )
+        {
+            try
+            {
+                return Assembly.LoadFrom(fi.FullName);
+            }
+            catch (BadImageFormatException)
+            {
+                // Ignore this; probably due to CPU architecure mismatch
+                return null;
+            }
+        }
+
+        private IEnumerable<Assembly> getResponderAssemblies(string path)
+        {
+            DirectoryInfo dir = new DirectoryInfo(path);
+            return dir.GetFiles("*Responder.dll", SearchOption.AllDirectories).ToList()
+                .Select(safeLoadAssembly)
+                .Where(a => a != null)
+                .Append(Assembly.GetEntryAssembly());
+        }
+
         /// <summary>
         /// Find all responders
         /// </summary>
@@ -2611,15 +2633,15 @@ namespace EddiCore
                 Logging.Warn("Unable to start EDDI Responders, application directory path not found.");
                 return null;
             }
-            DirectoryInfo dir = new DirectoryInfo(path);
+
             List<EDDIResponder> responders = new List<EDDIResponder>();
+            var assemblies = getResponderAssemblies(path);
             Type pluginType = typeof(EDDIResponder);
-            foreach (FileInfo file in dir.GetFiles("*Responder.dll", SearchOption.AllDirectories))
+            foreach (var assembly in assemblies)
             {
-                Logging.Debug("Checking potential plugin at " + file.FullName);
+                Logging.Debug("Checking potential plugin at " + assembly.FullName);
                 try
                 {
-                    Assembly assembly = Assembly.LoadFrom(file.FullName);
                     foreach (Type type in assembly.GetTypes())
                     {
                         if (type.IsInterface || type.IsAbstract)
@@ -2630,7 +2652,7 @@ namespace EddiCore
                         {
                             if (type.GetInterface(pluginType.FullName) != null)
                             {
-                                Logging.Debug("Instantiating responder plugin at " + file.FullName);
+                                Logging.Debug("Instantiating responder plugin at " + assembly.FullName);
                                 EDDIResponder responder = type.InvokeMember(null,
                                                            BindingFlags.CreateInstance,
                                                            null, null, null) as EDDIResponder;
@@ -2638,10 +2660,6 @@ namespace EddiCore
                             }
                         }
                     }
-                }
-                catch (BadImageFormatException)
-                {
-                    // Ignore this; probably due to CPU architecure mismatch
                 }
                 catch (ReflectionTypeLoadException ex)
                 {
@@ -2659,7 +2677,7 @@ namespace EddiCore
                         }
                         sb.AppendLine();
                     }
-                    Logging.Warn("Failed to instantiate plugin at " + file.FullName + ":\n" + sb.ToString());
+                    Logging.Warn("Failed to instantiate plugin at " + assembly.FullName + ":\n" + sb.ToString());
                 }
             }
             return responders;
