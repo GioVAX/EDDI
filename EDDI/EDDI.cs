@@ -1,5 +1,4 @@
-﻿using Eddi;
-using EddiCompanionAppService;
+﻿using EddiCompanionAppService;
 using EddiDataDefinitions;
 using EddiDataProviderService;
 using EddiEvents;
@@ -2103,18 +2102,14 @@ namespace EddiCore
 
                         // Update the configuration file
                         configuration.SquadronName = theEvent.name;
-                        configuration.SquadronRank = rank;
-
-                        // Update the squadron UI data
-                        Application.Current?.Dispatcher?.Invoke(() =>
+                        if (configuration.SquadronName == null)
                         {
-                            if (Application.Current?.MainWindow != null)
-                            {
-                                ((MainWindow)Application.Current.MainWindow).eddiSquadronNameText.Text = theEvent.name;
-                                ((MainWindow)Application.Current.MainWindow).squadronRankDropDown.SelectedItem = rank.localizedName;
-                                configuration = ((MainWindow)Application.Current.MainWindow).resetSquadronRank(configuration);
-                            }
-                        });
+                            configuration.SquadronRank = SquadronRank.None;
+                        }
+                        else
+                        {
+                            configuration.SquadronRank = rank;
+                        }
 
                         // Update the commander object, if it exists
                         if (Cmdr != null)
@@ -2128,15 +2123,6 @@ namespace EddiCore
                     {
                         // Update the configuration file
                         configuration.SquadronName = theEvent.name;
-
-                        // Update the squadron UI data
-                        Application.Current?.Dispatcher?.Invoke(() =>
-                        {
-                            if (Application.Current?.MainWindow != null)
-                            {
-                                ((MainWindow)Application.Current.MainWindow).eddiSquadronNameText.Text = theEvent.name;
-                            }
-                        });
 
                         // Update the commander object, if it exists
                         if (Cmdr != null)
@@ -2152,17 +2138,6 @@ namespace EddiCore
                         // Update the configuration file
                         configuration.SquadronName = null;
                         configuration.SquadronID = null;
-
-                        // Update the squadron UI data
-                        Application.Current?.Dispatcher?.Invoke(() =>
-                        {
-                            if (Application.Current?.MainWindow != null)
-                            {
-                                ((MainWindow)Application.Current.MainWindow).eddiSquadronNameText.Text = string.Empty;
-                                ((MainWindow)Application.Current.MainWindow).eddiSquadronIDText.Text = string.Empty;
-                                configuration = ((MainWindow)Application.Current.MainWindow).resetSquadronRank(configuration);
-                            }
-                        });
 
                         // Update the commander object, if it exists
                         if (Cmdr != null)
@@ -2936,14 +2911,6 @@ namespace EddiCore
                 {
                     configuration.SquadronFaction = faction.name;
 
-                    Application.Current?.Dispatcher?.Invoke(() =>
-                    {
-                        if (Application.Current?.MainWindow != null)
-                        {
-                            ((MainWindow)Application.Current.MainWindow).squadronFactionDropDown.SelectedItem = faction.name;
-                        }
-                    });
-
                     Cmdr.squadronfaction = faction.name;
                 }
 
@@ -2955,16 +2922,6 @@ namespace EddiCore
                     if (configuration.SquadronSystem == null || configuration.SquadronSystem != system)
                     {
                         configuration.SquadronSystem = system;
-
-                        var configurationCopy = configuration;
-                        Application.Current?.Dispatcher?.Invoke(() =>
-                        {
-                            if (Application.Current?.MainWindow != null)
-                            {
-                                ((MainWindow)Application.Current.MainWindow).squadronSystemDropDown.Text = system;
-                                ((MainWindow)Application.Current.MainWindow).ConfigureSquadronFactionOptions(configurationCopy);
-                            }
-                        });
 
                         configuration = updateSquadronSystem(configuration);
                     }
@@ -2991,15 +2948,6 @@ namespace EddiCore
                         if (configuration.SquadronPower == Power.None && configuration.SquadronPower != power)
                         {
                             configuration.SquadronPower = power;
-
-                            Application.Current?.Dispatcher?.Invoke(() =>
-                            {
-                                if (Application.Current?.MainWindow != null)
-                                {
-                                    ((MainWindow)Application.Current.MainWindow).squadronPowerDropDown.SelectedItem = power.localizedName;
-                                    ((MainWindow)Application.Current.MainWindow).ConfigureSquadronPowerOptions(configuration);
-                                }
-                            });
                         }
                     }
                 }
