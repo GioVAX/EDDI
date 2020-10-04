@@ -1,7 +1,7 @@
-﻿using EddiDataDefinitions;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using EddiDataDefinitions;
+using Newtonsoft.Json;
 using Utilities;
 
 namespace EddiCore
