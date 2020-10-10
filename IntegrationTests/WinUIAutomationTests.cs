@@ -1,7 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Threading;
-using System.Windows.Automation;
+﻿using System.Windows.Automation;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -11,70 +8,47 @@ namespace IntegrationTests
     /// Summary description for WinUIAutomationTests
     /// </summary>
     [TestClass]
-    public class WinUIAutomationTests
+    public class WinUIAutomationTests : IntegrationBase
     {
-        private static Process _eddi;
-        private AutomationElement _mainForm;
 
         [ClassInitialize]
-        public static void LaunchEDDI(TestContext _) =>
-            _eddi = Process.Start(@"C:\Program Files (x86)\VoiceAttack\Apps\EDDI\EDDI.exe");
+        public static void Setup(TestContext _) => LaunchEDDI();
 
         [ClassCleanup]
-        public static void ShutdownEDDI() =>
-            _eddi?.CloseMainWindow();
+        public static void Cleanup() => ShutdownEDDI();
 
-        private AutomationElement MainForm => _mainForm ?? (_mainForm = GetMainForm());
-
-        private AutomationElement GetMainForm()
-        {
-            // get reference to main Form control 
-            var aeDesktop = AutomationElement.RootElement;
-            // a better approach 
-            AutomationElement aeForm = null;
-            for (var numWaits = 0; aeForm == null && numWaits < 50; ++numWaits)
-            {
-                aeForm = aeDesktop.FindFirst(TreeScope.Children,
-                    new PropertyCondition(AutomationElement.NameProperty, "EDDI v.3.7.0"));
-                ++numWaits;
-                Thread.Sleep(100);
-            }
-
-            if (aeForm != null)
-                return aeForm;
-
-            throw new Exception("Failed to find EDDI");
-        }
-
-        private void SelectTab(string tabName)
-        {
-            var tab = MainForm.FindFirst(TreeScope.Descendants,
-                new AndCondition(
-                    new PropertyCondition(AutomationElement.ControlTypeProperty, ControlType.TabItem),
-                    new PropertyCondition(AutomationElement.NameProperty, tabName))
-                );
-
-            var sel = (SelectionItemPattern)tab.GetCurrentPattern(SelectionItemPattern.Pattern);
-            sel.Select();
-        }
-
-        private AutomationElement GetEditBox(string editName) =>
-            MainForm.FindFirst(TreeScope.Descendants,
-                new AndCondition(
-                    new PropertyCondition(AutomationElement.ControlTypeProperty, ControlType.Edit),
-                    new PropertyCondition(AutomationElement.AutomationIdProperty, editName))
-                );
-
+ 
         [TestMethod]
         public void CanReadTheSquadronNameTextBox()
         {
-            var mainForm = MainForm;
             SelectTab("Commander Details");
             var edit = GetEditBox("eddiSquadronNameText");
 
             var squadronName = (ValuePattern)edit.GetCurrentPattern(ValuePattern.Pattern);
             squadronName.Current.Value
                 .Should().Be("Newton's Gambit");
+        }
+
+        [TestMethod]
+        public void CanReadTheCommanderNameTextBox()
+        {
+            SelectTab("Commander Details");
+            var edit = GetEditBox("eddiCommanderPhoneticNameText");
+
+            var squadronName = (ValuePattern)edit.GetCurrentPattern(ValuePattern.Pattern);
+            squadronName.Current.Value
+                .Should().Be("giovax");
+        }
+
+        [TestMethod]
+        public void CanReadTheEDSMCommanderNameTextBox()
+        {
+            SelectTab("EDSM Responder");
+            var edit = GetEditBox("edsmCommanderNameTextBox");
+
+            var squadronName = (ValuePattern)edit.GetCurrentPattern(ValuePattern.Pattern);
+            squadronName.Current.Value
+                .Should().Be("GioVAX");
         }
     }
 }
