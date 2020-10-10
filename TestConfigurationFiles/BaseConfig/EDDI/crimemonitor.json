@@ -1,0 +1,11 @@
+﻿{
+  "criminalrecord": [],
+  "homeSystems": {},
+  "claims": 0,
+  "fines": 0,
+  "bounties": 0,
+  "maxStationDistanceFromStarLs": 10000,
+  "prioritizeOrbitalStations": false,
+  "targetSystem": "Flyiedgue ZK-H c25-2",
+  "updatedat": "2020-10-10T13:38:35Z"
+}

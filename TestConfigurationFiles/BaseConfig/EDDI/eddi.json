@@ -1,0 +1,25 @@
+﻿{
+  "homeSystem": "Eravate",
+  "homeStation": "Cleve Hub",
+  "destinationSystem": null,
+  "destinationStation": null,
+  "squadronName": "Cicciobello",
+  "squadronID": null,
+  "squadronRank": "None",
+  "squadronAllegiance": "$faction_None",
+  "squadronPower": "None",
+  "squadronSystem": "",
+  "squadronFaction": null,
+  "debug": false,
+  "beta": false,
+  "plugins": {
+    "Galnet monitor": false,
+    "VoiceAttack responder": false
+  },
+  "Gender": "Male",
+  "powerMerits": null,
+  "exporttarget": "Coriolis",
+  "OverrideCulture": "en",
+  "CommanderName": null,
+  "PhoneticName": "giovax"
+}

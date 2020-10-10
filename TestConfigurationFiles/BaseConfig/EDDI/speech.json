@@ -1,0 +1,9 @@
+﻿{
+  "standardVoice": "Microsoft Hazel Desktop",
+  "volume": 80,
+  "effectsLevel": 3,
+  "distortOnDamage": true,
+  "rate": 2,
+  "disablessml": false,
+  "enableicao": false
+}

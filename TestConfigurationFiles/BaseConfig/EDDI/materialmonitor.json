@@ -1,0 +1,964 @@
+﻿{
+  "materials": [
+    {
+      "edname": "shieldpatternanalysis",
+      "amount": 66,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "compactemissionsdata",
+      "amount": 6,
+      "minimum": null,
+      "desired": null,
+      "maximum": 100
+    },
+    {
+      "edname": "adaptiveencryptors",
+      "amount": 3,
+      "minimum": null,
+      "desired": null,
+      "maximum": 100
+    },
+    {
+      "edname": "bulkscandata",
+      "amount": 136,
+      "minimum": null,
+      "desired": null,
+      "maximum": 300
+    },
+    {
+      "edname": "fsdtelemetry",
+      "amount": 18,
+      "minimum": null,
+      "desired": null,
+      "maximum": 250
+    },
+    {
+      "edname": "antimony",
+      "amount": 15,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "arsenic",
+      "amount": 32,
+      "minimum": null,
+      "desired": null,
+      "maximum": 250
+    },
+    {
+      "edname": "disruptedwakeechoes",
+      "amount": 61,
+      "minimum": null,
+      "desired": null,
+      "maximum": 300
+    },
+    {
+      "edname": "encryptionarchives",
+      "amount": 3,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "basicconductors",
+      "amount": 9,
+      "minimum": null,
+      "desired": null,
+      "maximum": 300
+    },
+    {
+      "edname": "biotechconductors",
+      "amount": 2,
+      "minimum": null,
+      "desired": null,
+      "maximum": 100
+    },
+    {
+      "edname": "boron",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "cadmium",
+      "amount": 24,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "carbon",
+      "amount": 111,
+      "minimum": null,
+      "desired": null,
+      "maximum": 300
+    },
+    {
+      "edname": "chemicaldistillery",
+      "amount": 21,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "chemicalmanipulators",
+      "amount": 17,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "chemicalprocessors",
+      "amount": 24,
+      "minimum": null,
+      "desired": null,
+      "maximum": 250
+    },
+    {
+      "edname": "chemicalstorageunits",
+      "amount": 12,
+      "minimum": null,
+      "desired": null,
+      "maximum": 300
+    },
+    {
+      "edname": "chromium",
+      "amount": 105,
+      "minimum": null,
+      "desired": null,
+      "maximum": 250
+    },
+    {
+      "edname": "scandatabanks",
+      "amount": 85,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "classifiedscandata",
+      "amount": 3,
+      "minimum": null,
+      "desired": null,
+      "maximum": 100
+    },
+    {
+      "edname": "compactcomposites",
+      "amount": 15,
+      "minimum": null,
+      "desired": null,
+      "maximum": 300
+    },
+    {
+      "edname": "compoundshielding",
+      "amount": 6,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "conductiveceramics",
+      "amount": 9,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "conductivecomponents",
+      "amount": 14,
+      "minimum": null,
+      "desired": null,
+      "maximum": 250
+    },
+    {
+      "edname": "conductivepolymers",
+      "amount": 15,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "configurablecomponents",
+      "amount": 6,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "fedcorecomposites",
+      "amount": 5,
+      "minimum": null,
+      "desired": null,
+      "maximum": 100
+    },
+    {
+      "edname": "industrialfirmware",
+      "amount": 4,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "crystalshards",
+      "amount": 36,
+      "minimum": null,
+      "desired": null,
+      "maximum": 300
+    },
+    {
+      "edname": "dataminedwake",
+      "amount": 1,
+      "minimum": null,
+      "desired": null,
+      "maximum": 100
+    },
+    {
+      "edname": "decodedemissiondata",
+      "amount": 102,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "shieldcyclerecordings",
+      "amount": 300,
+      "minimum": null,
+      "desired": null,
+      "maximum": 300
+    },
+    {
+      "edname": "encodedscandata",
+      "amount": 18,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "hyperspacetrajectories",
+      "amount": 14,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "electrochemicalarrays",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "scrambledemissiondata",
+      "amount": 6,
+      "minimum": null,
+      "desired": null,
+      "maximum": 300
+    },
+    {
+      "edname": "exquisitefocuscrystals",
+      "amount": 1,
+      "minimum": null,
+      "desired": null,
+      "maximum": 100
+    },
+    {
+      "edname": "filamentcomposites",
+      "amount": 33,
+      "minimum": null,
+      "desired": null,
+      "maximum": 250
+    },
+    {
+      "edname": "uncutfocuscrystals",
+      "amount": 24,
+      "minimum": null,
+      "desired": null,
+      "maximum": 250
+    },
+    {
+      "edname": "focuscrystals",
+      "amount": 30,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "galvanisingalloys",
+      "amount": 45,
+      "minimum": null,
+      "desired": null,
+      "maximum": 250
+    },
+    {
+      "edname": "germanium",
+      "amount": 41,
+      "minimum": null,
+      "desired": null,
+      "maximum": 250
+    },
+    {
+      "edname": "gridresistors",
+      "amount": 2,
+      "minimum": null,
+      "desired": null,
+      "maximum": 300
+    },
+    {
+      "edname": "guardian_moduleblueprint",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "guardian_powercell",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 300
+    },
+    {
+      "edname": "guardian_powerconduit",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 250
+    },
+    {
+      "edname": "guardian_sentinel_weaponparts",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "guardian_sentinel_wreckagecomponents",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 300
+    },
+    {
+      "edname": "guardian_techcomponent",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "guardian_vesselblueprint",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 100
+    },
+    {
+      "edname": "guardian_weaponblueprint",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "heatconductionwiring",
+      "amount": 21,
+      "minimum": null,
+      "desired": null,
+      "maximum": 300
+    },
+    {
+      "edname": "heatdispersionplate",
+      "amount": 20,
+      "minimum": null,
+      "desired": null,
+      "maximum": 250
+    },
+    {
+      "edname": "heatexchangers",
+      "amount": 18,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "heatresistantceramics",
+      "amount": 6,
+      "minimum": null,
+      "desired": null,
+      "maximum": 250
+    },
+    {
+      "edname": "heatvanes",
+      "amount": 5,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "highdensitycomposites",
+      "amount": 9,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "hybridcapacitors",
+      "amount": 5,
+      "minimum": null,
+      "desired": null,
+      "maximum": 250
+    },
+    {
+      "edname": "imperialshielding",
+      "amount": 24,
+      "minimum": null,
+      "desired": null,
+      "maximum": 100
+    },
+    {
+      "edname": "improvisedcomponents",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 100
+    },
+    {
+      "edname": "shieldsoakanalysis",
+      "amount": 174,
+      "minimum": null,
+      "desired": null,
+      "maximum": 250
+    },
+    {
+      "edname": "iron",
+      "amount": 192,
+      "minimum": null,
+      "desired": null,
+      "maximum": 300
+    },
+    {
+      "edname": "archivedemissiondata",
+      "amount": 30,
+      "minimum": null,
+      "desired": null,
+      "maximum": 250
+    },
+    {
+      "edname": "lead",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 300
+    },
+    {
+      "edname": "manganese",
+      "amount": 147,
+      "minimum": null,
+      "desired": null,
+      "maximum": 250
+    },
+    {
+      "edname": "mechanicalcomponents",
+      "amount": 15,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "mechanicalequipment",
+      "amount": 17,
+      "minimum": null,
+      "desired": null,
+      "maximum": 250
+    },
+    {
+      "edname": "mechanicalscrap",
+      "amount": 17,
+      "minimum": null,
+      "desired": null,
+      "maximum": 300
+    },
+    {
+      "edname": "mercury",
+      "amount": 15,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "militarygradealloys",
+      "amount": 3,
+      "minimum": null,
+      "desired": null,
+      "maximum": 100
+    },
+    {
+      "edname": "militarysupercapacitors",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 100
+    },
+    {
+      "edname": "consumerfirmware",
+      "amount": 11,
+      "minimum": null,
+      "desired": null,
+      "maximum": 250
+    },
+    {
+      "edname": "embeddedfirmware",
+      "amount": 1,
+      "minimum": null,
+      "desired": null,
+      "maximum": 100
+    },
+    {
+      "edname": "molybdenum",
+      "amount": 9,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "nickel",
+      "amount": 185,
+      "minimum": null,
+      "desired": null,
+      "maximum": 300
+    },
+    {
+      "edname": "niobium",
+      "amount": 99,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "symmetrickeys",
+      "amount": 3,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "ancientbiologicaldata",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "ancientculturaldata",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 250
+    },
+    {
+      "edname": "ancientlanguagedata",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "ancienttechnologicaldata",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "ancienthistoricaldata",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "shieldfrequencydata",
+      "amount": 9,
+      "minimum": null,
+      "desired": null,
+      "maximum": 100
+    },
+    {
+      "edname": "pharmaceuticalisolators",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 100
+    },
+    {
+      "edname": "phasealloys",
+      "amount": 28,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "phosphorus",
+      "amount": 57,
+      "minimum": null,
+      "desired": null,
+      "maximum": 300
+    },
+    {
+      "edname": "polonium",
+      "amount": 21,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "polymercapacitors",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "precipitatedalloys",
+      "amount": 13,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "fedproprietarycomposites",
+      "amount": 12,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "protoheatradiators",
+      "amount": 15,
+      "minimum": null,
+      "desired": null,
+      "maximum": 100
+    },
+    {
+      "edname": "protolightalloys",
+      "amount": 30,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "protoradiolicalloys",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 100
+    },
+    {
+      "edname": "refinedfocuscrystals",
+      "amount": 9,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "rhenium",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 300
+    },
+    {
+      "edname": "ruthenium",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "salvagedalloys",
+      "amount": 21,
+      "minimum": null,
+      "desired": null,
+      "maximum": 300
+    },
+    {
+      "edname": "securityfirmware",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "selenium",
+      "amount": 30,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "unknownenergysource",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 100
+    },
+    {
+      "edname": "shieldemitters",
+      "amount": 75,
+      "minimum": null,
+      "desired": null,
+      "maximum": 250
+    },
+    {
+      "edname": "shieldingsensors",
+      "amount": 54,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "legacyfirmware",
+      "amount": 11,
+      "minimum": null,
+      "desired": null,
+      "maximum": 300
+    },
+    {
+      "edname": "wakesolutions",
+      "amount": 8,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "sulphur",
+      "amount": 108,
+      "minimum": null,
+      "desired": null,
+      "maximum": 300
+    },
+    {
+      "edname": "encryptioncodes",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 250
+    },
+    {
+      "edname": "technetium",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "tellurium",
+      "amount": 30,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "temperedalloys",
+      "amount": 9,
+      "minimum": null,
+      "desired": null,
+      "maximum": 300
+    },
+    {
+      "edname": "tg_biomechanicalconduits",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "unknowncarapace",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 250
+    },
+    {
+      "edname": "unknownenergycell",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "tg_compositiondata",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "unknownorganiccircuitry",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 100
+    },
+    {
+      "edname": "tg_propulsionelement",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 100
+    },
+    {
+      "edname": "tg_residuedata",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "tg_shipflightdata",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "unknownshipsignature",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "tg_shipsystemsdata",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "tg_structuraldata",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 250
+    },
+    {
+      "edname": "unknowntechnologycomponents",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "unknownwakedata",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "tg_weaponparts",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "tg_wreckagecomponents",
+      "amount": 0,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "thermicalloys",
+      "amount": 7,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "tin",
+      "amount": 9,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "tungsten",
+      "amount": 51,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "emissiondata",
+      "amount": 78,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "scanarchives",
+      "amount": 48,
+      "minimum": null,
+      "desired": null,
+      "maximum": 250
+    },
+    {
+      "edname": "shielddensityreports",
+      "amount": 200,
+      "minimum": null,
+      "desired": null,
+      "maximum": 200
+    },
+    {
+      "edname": "encryptedfiles",
+      "amount": 3,
+      "minimum": null,
+      "desired": null,
+      "maximum": 300
+    },
+    {
+      "edname": "vanadium",
+      "amount": 72,
+      "minimum": null,
+      "desired": null,
+      "maximum": 250
+    },
+    {
+      "edname": "wornshieldemitters",
+      "amount": 27,
+      "minimum": null,
+      "desired": null,
+      "maximum": 300
+    },
+    {
+      "edname": "yttrium",
+      "amount": 21,
+      "minimum": null,
+      "desired": null,
+      "maximum": 150
+    },
+    {
+      "edname": "zinc",
+      "amount": 84,
+      "minimum": null,
+      "desired": null,
+      "maximum": 250
+    },
+    {
+      "edname": "zirconium",
+      "amount": 3,
+      "minimum": null,
+      "desired": null,
+      "maximum": 250
+    }
+  ],
+  "maxStationDistanceFromStarLs": 10000
+}

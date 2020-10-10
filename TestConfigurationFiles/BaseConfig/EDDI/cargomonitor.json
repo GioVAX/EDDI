@@ -1,0 +1,54 @@
+﻿{
+  "cargo": [
+    {
+      "edname": "AncientOrb",
+      "stolen": 0,
+      "haulage": 0,
+      "owned": 1,
+      "other": 1,
+      "need": 0,
+      "total": 1,
+      "price": 0,
+      "category": "Salvage",
+      "haulageData": []
+    },
+    {
+      "edname": "AncientRelic",
+      "stolen": 0,
+      "haulage": 0,
+      "owned": 3,
+      "other": 3,
+      "need": 0,
+      "total": 3,
+      "price": 0,
+      "category": "Salvage",
+      "haulageData": []
+    },
+    {
+      "edname": "AncientTablet",
+      "stolen": 0,
+      "haulage": 0,
+      "owned": 1,
+      "other": 1,
+      "need": 0,
+      "total": 1,
+      "price": 0,
+      "category": "Salvage",
+      "haulageData": []
+    },
+    {
+      "edname": "AncientUrn",
+      "stolen": 0,
+      "haulage": 0,
+      "owned": 1,
+      "other": 1,
+      "need": 0,
+      "total": 1,
+      "price": 0,
+      "category": "Salvage",
+      "haulageData": []
+    }
+  ],
+  "cargocarried": 6,
+  "updatedat": "2020-10-10T13:01:40Z"
+}
