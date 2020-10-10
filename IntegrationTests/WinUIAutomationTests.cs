@@ -4,13 +4,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace IntegrationTests
 {
-    /// <summary>
-    /// Summary description for WinUIAutomationTests
-    /// </summary>
     [TestClass]
-    public class WinUIAutomationTests : IntegrationBase
+    public class WinUIAutomationFunctions : IntegrationBase
     {
-
         [ClassInitialize]
         public static void Setup(TestContext _) => LaunchEDDI();
 
@@ -29,26 +25,24 @@ namespace IntegrationTests
                 .Should().Be("Newton's Gambit");
         }
 
-        [TestMethod]
-        public void CanReadTheCommanderNameTextBox()
-        {
-            SelectTab("Commander Details");
-            var edit = GetEditBox("eddiCommanderPhoneticNameText");
-
-            var squadronName = (ValuePattern)edit.GetCurrentPattern(ValuePattern.Pattern);
-            squadronName.Current.Value
-                .Should().Be("giovax");
-        }
-
-        [TestMethod]
+         [TestMethod]
         public void CanReadTheEDSMCommanderNameTextBox()
         {
             SelectTab("EDSM Responder");
             var edit = GetEditBox("edsmCommanderNameTextBox");
 
-            var squadronName = (ValuePattern)edit.GetCurrentPattern(ValuePattern.Pattern);
-            squadronName.Current.Value
+            var edsmCmndrName = (ValuePattern)edit.GetCurrentPattern(ValuePattern.Pattern);
+            edsmCmndrName.Current.Value
                 .Should().Be("GioVAX");
+        }
+
+        [TestMethod]
+        public void ControlsFromUnselectedTabs_SHOULDNotBeAccessible()
+        {
+            SelectTab("EDSM Responder");
+            var edit = GetEditBox("eddiCommanderPhoneticNameText"); // This is in the "Commander Details" tab
+
+            edit.Should().BeNull();
         }
     }
 }
