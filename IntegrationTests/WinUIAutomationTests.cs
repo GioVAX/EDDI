@@ -7,12 +7,20 @@ namespace IntegrationTests
     [TestClass]
     public class WinUIAutomationFunctions : IntegrationBase
     {
+        private static string _configPath;
         [ClassInitialize]
-        public static void Setup(TestContext _) => LaunchEDDI(@"ConfigRoot=..\..\TestConfigurationFiles\BaseConfig");
+        public static void Setup(TestContext _)
+        {
+            _configPath = CopyConfiguration(@"..\\..\\TestConfigurationFiles\\BaseConfig");
+            LaunchEDDI($"ConfigRoot={_configPath}");
+        }
 
         [ClassCleanup]
-        public static void Cleanup() => ShutdownEDDI();
-
+        public static void Cleanup()
+        {
+            ShutdownEDDI();
+            DeleteConfiguration(_configPath);
+        }
  
         [TestMethod]
         public void CanReadTheSquadronNameTextBox()

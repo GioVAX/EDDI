@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Threading;
 using System.Windows.Automation;
 using EddiCore;
@@ -15,12 +16,41 @@ namespace IntegrationTests
         /// Static code used during tests Setup and Cleanup
         /// </summary>
         private static Process _eddi;
-        protected static void LaunchEDDI(string exeParams="") =>
+
+        protected static void LaunchEDDI(string exeParams = "") =>
             // Relative path to the local built executable
             _eddi = Process.Start(@".\EDDI.exe", exeParams);
 
         protected static void ShutdownEDDI() =>
             _eddi?.CloseMainWindow();
+
+        protected static void DeleteConfiguration(string configPath)
+        {
+            if (Directory.Exists(configPath))
+                Directory.Delete(configPath, true);
+        }
+
+        protected static string CopyConfiguration(string srcPath)
+        {
+            var tmpConfigPath = CreateTempDirectory();
+            CopyFolderRecursively(new DirectoryInfo(srcPath), new DirectoryInfo(tmpConfigPath));
+            return tmpConfigPath;
+        }
+
+        private static string CreateTempDirectory()
+        {
+            string path = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
+            Directory.CreateDirectory(path);
+            return path;
+        }
+
+        private static void CopyFolderRecursively(DirectoryInfo source, DirectoryInfo target)
+        {
+            foreach (DirectoryInfo dir in source.GetDirectories())
+                CopyFolderRecursively(dir, target.CreateSubdirectory(dir.Name));
+            foreach (FileInfo file in source.GetFiles())
+                file.CopyTo(Path.Combine(target.FullName, file.Name));
+        }
 
         private AutomationElement _mainForm;
 
