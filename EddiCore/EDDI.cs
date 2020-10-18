@@ -2560,11 +2560,11 @@ namespace EddiCore
             DirectoryInfo dir = new DirectoryInfo(path);
             var responders = dir.GetFiles("*Responder.dll", SearchOption.AllDirectories)
                 .ToList();
+            responders.AddRange(dir.GetFiles("EDDI.exe").ToList());
 
             return responders
                 .Select(safeLoadAssembly)
-                .Where(a => a != null)
-                .Append(Assembly.GetExecutingAssembly());
+                .Where(a => a != null);
         }
 
         /// <summary>

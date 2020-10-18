@@ -1,7 +1,10 @@
 ﻿using EddiCore;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
+using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,10 +26,12 @@ namespace Eddi
         [STAThread]
         public static void Main()
         {
-            if (!FromVA && AlreadyRunning()) { return; }
+           if (!FromVA && AlreadyRunning()) { return; }
 
             App app = new App();
             app.Exit += OnExit;
+
+            ProcessCmdLineArguments(Environment.GetCommandLineArgs());
 
             // Start the application
             Logging.incrementLogs(); // Increment to a new log file.
@@ -51,6 +56,23 @@ namespace Eddi
             {
                 // Start by displaying the MainWindow
                 app.Run(new MainWindow());
+            }
+        }
+
+        private static void ProcessCmdLineArguments(IEnumerable<string> parameters)
+        {
+            var dict = parameters
+                .Select(s => s.ToLowerInvariant().Split('='))
+                .Where(a => a.Length == 2)
+                .ToDictionary(a => a[0], a => a[1]);
+
+            if (dict.ContainsKey("configroot"))
+            {
+                var path = dict["configroot"];
+                if (Directory.Exists(path))
+                {
+                    Constants.BASE_DIR = path;
+                }
             }
         }
 

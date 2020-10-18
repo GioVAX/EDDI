@@ -8,7 +8,7 @@ namespace IntegrationTests
     public class WinUIAutomationFunctions : IntegrationBase
     {
         [ClassInitialize]
-        public static void Setup(TestContext _) => LaunchEDDI();
+        public static void Setup(TestContext _) => LaunchEDDI(@"ConfigRoot=..\..\TestConfigurationFiles\BaseConfig");
 
         [ClassCleanup]
         public static void Cleanup() => ShutdownEDDI();
@@ -22,7 +22,7 @@ namespace IntegrationTests
 
             var squadronName = (ValuePattern)edit.GetCurrentPattern(ValuePattern.Pattern);
             squadronName.Current.Value
-                .Should().Be("Newton's Gambit");
+                .Should().Be("Cicciobello");
         }
 
          [TestMethod]

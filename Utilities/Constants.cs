@@ -15,7 +15,7 @@ namespace Utilities
         public static readonly string EDDI_SYSTEM_MUTEX_NAME = $"{EDDI_SERVER_URL}/{EDDI_NAME}/{Environment.GetEnvironmentVariable("UserName")}";
 
         public static string BASE_DIR = Environment.GetEnvironmentVariable("AppData");
-        public static readonly string DATA_DIR = BASE_DIR + "\\" + EDDI_NAME;
+        public static string DATA_DIR => BASE_DIR + "\\" + EDDI_NAME;
 
         public static readonly string ENVIRONMENT_WITCH_SPACE = "Witch Space";
         public static readonly string ENVIRONMENT_SUPERCRUISE = "Supercruise";

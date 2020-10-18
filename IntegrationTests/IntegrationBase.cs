@@ -15,9 +15,9 @@ namespace IntegrationTests
         /// Static code used during tests Setup and Cleanup
         /// </summary>
         private static Process _eddi;
-        protected static void LaunchEDDI() =>
+        protected static void LaunchEDDI(string exeParams="") =>
             // Relative path to the local built executable
-            _eddi = Process.Start(@"..\..\..\bin\Debug\EDDI.exe");
+            _eddi = Process.Start(@".\EDDI.exe", exeParams);
 
         protected static void ShutdownEDDI() =>
             _eddi?.CloseMainWindow();
