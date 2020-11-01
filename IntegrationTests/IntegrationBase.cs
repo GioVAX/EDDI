@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Net.Mime;
 using System.Threading;
 using System.Windows.Automation;
 using EddiCore;
@@ -15,14 +16,17 @@ namespace IntegrationTests
         /// <summary>
         /// Static code used during tests Setup and Cleanup
         /// </summary>
-        private static Process _eddi;
+        private static Process _eddiProcess;
 
-        protected static void LaunchEDDI(string exeParams = "") =>
+        protected static void LaunchEDDI(string exeParams = "")
+        {
             // Relative path to the local built executable
-            _eddi = Process.Start(@".\EDDI.exe", exeParams);
+            _eddiProcess = Process.Start(@".\EDDI.exe", exeParams);
+            EDDI.Instance.Start();
+        }
 
         protected static void ShutdownEDDI() =>
-            _eddi?.CloseMainWindow();
+            _eddiProcess?.CloseMainWindow();
 
         protected static void DeleteConfiguration(string configPath)
         {
@@ -61,14 +65,14 @@ namespace IntegrationTests
             // get reference to main Form control 
             // a better approach 
             AutomationElement aeForm = null;
-            for (var numWaits = 0; aeForm == null && numWaits < 50; ++numWaits)
+            for (var numWaits = 0; aeForm == null && numWaits < 100; ++numWaits)
             {
                 var title = "EDDI v." + Constants.EDDI_VERSION;
 
                 aeForm = AutomationElement.RootElement.FindFirst(TreeScope.Children,
                     new PropertyCondition(AutomationElement.NameProperty, title));
                 ++numWaits;
-                Thread.Sleep(100);
+                Thread.Sleep(500);
             }
 
             if (aeForm != null)
@@ -97,7 +101,7 @@ namespace IntegrationTests
             );
 
 
-        protected void MakeSafe()
+        protected static void MakeSafe()
         {
             // Prevent telemetry data from being reported based on test results
             RollbarLocator.RollbarInstance.Config.Enabled = false;
